@@ -41,9 +41,9 @@ public class ForkJoinSumTask extends RecursiveTask<Integer> {
             int max = 100;
             int min = 30;
 
-            // 生成范围随机数 max - min + 1
-//            int number = random.nextInt(max - min + 1) + threadNumber; 用固定的数字可以验证算法是否正确。
-            int number = 1;
+            // 生成范围随机数 max - min + 1  用固定的数字可以验证算法是否正确。
+            int number = random.nextInt(max - min + 1) + threadNumber;
+//            int number = 1;
             result[i] = number;
         }
 
@@ -83,8 +83,8 @@ public class ForkJoinSumTask extends RecursiveTask<Integer> {
 
     public static void main(String[] args) {
 
-        ForkJoinSumTask.getNumberArray(268435456);
-        ForkJoinSumTask forkJoinSumTask = new ForkJoinSumTask(0, 268435456);
+        ForkJoinSumTask.getNumberArray(200);
+        ForkJoinSumTask forkJoinSumTask = new ForkJoinSumTask(0, 200);
         ForkJoinPool forkJoinPool = new ForkJoinPool();
         int sum = forkJoinPool.invoke(forkJoinSumTask);
         System.out.println(sum);
